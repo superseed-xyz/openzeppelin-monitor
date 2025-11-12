@@ -33,6 +33,6 @@ jobs:
         run: |
           IMAGE_BASE="$GCP_REGION-docker.pkg.dev/$GCP_PROJECT/$REPO_NAME/$IMAGE_NAME"
           echo "Building image: $IMAGE_BASE"
-          docker build -t "$IMAGE_BASE:latest" -t "$IMAGE_BASE:$GITHUB_SHA" .
+          docker build -f Dockerfile.production -t "$IMAGE_BASE:latest" -t "$IMAGE_BASE:$GITHUB_SHA" .
           docker push "$IMAGE_BASE:latest"
           docker push "$IMAGE_BASE:$GITHUB_SHA"
