@@ -1,0 +1,52 @@
+{
+  "name": "Liquidation vUSDC(Sepolia)",
+  "paused": false,
+  "networks": ["ethereum_sepolia"],
+  "addresses": [
+    {
+      "address": "0x9b1736e1Ce0aB056C0f4Cf5c717BFA719b4e3e2F",
+      "contract_spec": [
+        {
+          "anonymous": false,
+          "inputs": [
+            { "indexed": true, "internalType": "address", "name": "collateralAsset", "type": "address" },
+            { "indexed": true, "internalType": "address", "name": "debtAsset", "type": "address" },
+            { "indexed": true, "internalType": "address", "name": "user", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "debtToCover", "type": "uint256" },
+            { "indexed": false, "internalType": "uint256", "name": "liquidatedCollateralAmount", "type": "uint256" },
+            { "indexed": false, "internalType": "address", "name": "liquidator", "type": "address" }
+          ],
+          "name": "LiquidationCall",
+          "type": "event"
+        }
+      ]
+    }
+  ],
+  "match_conditions": {
+    "functions": [],
+    "events": [
+      {
+        "signature": "LiquidationCall(address,address,address,uint256,uint256,address)",
+        "expression": "debtToCover > 100000000000000000" 
+      }
+    ],
+    "transactions": [
+      {
+        "status": "Success",
+        "expression": null
+      }
+    ]
+  },
+  "trigger_conditions": [
+    {
+      "script_path": "./config/filters/evm_filter_block_number.sh",
+      "language": "Bash",
+      "arguments": ["--verbose"],
+      "timeout_ms": 1000
+    }
+  ],
+  "triggers": [
+    "evm_liquidation_slack"
+  ]
+}
+

@@ -1,5 +1,5 @@
 {
-  "name": "Large Transfer of USDC Token",
+  "name": "Large Transfer of USDC Token (Sepolia)",
   "paused": false,
   "networks": ["ethereum_sepolia"],
   "addresses": [
@@ -9,24 +9,9 @@
         {
           "anonymous": false,
           "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "from",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "to",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "value",
-              "type": "uint256"
-            }
+            { "indexed": true, "internalType": "address", "name": "from", "type": "address" },
+            { "indexed": true, "internalType": "address", "name": "to", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }
           ],
           "name": "Transfer",
           "type": "event"
@@ -54,7 +39,7 @@
     "events": [
       {
         "signature": "Transfer(address,address,uint256)",
-        "expression": "value > 100000000000"
+        "expression": "value > 10000000000"
       }
     ],
     "transactions": [
@@ -64,11 +49,16 @@
       }
     ]
   },
-  "trigger_conditions": [{
-    "script_path": "./config/filters/evm_filter_block_number.sh",
-    "language": "Bash",
-    "arguments": ["--verbose"],
-    "timeout_ms": 1000
-  }],
-  "triggers": ["evm_large_transfer_usdc_slack"]
+  "trigger_conditions": [
+    {
+      "script_path": "./config/filters/evm_filter_block_number.sh",
+      "language": "Bash",
+      "arguments": ["--verbose"],
+      "timeout_ms": 1000
+    }
+  ],
+  "triggers": [
+    "evm_large_transfer_usdc_slack"
+  ]
 }
+

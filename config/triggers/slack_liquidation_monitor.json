@@ -1,0 +1,17 @@
+{
+  "evm_liquidation_slack": {
+    "name": "Liquidation Warning Slack Notification",
+    "trigger_type": "slack",
+    "config": {
+      "slack_url": {
+        "type": "plain",
+        "value": "YOUR_WEBHOOK_URL"
+      },
+      "message": {
+		"title": "Large Liquidation Detected on Sepolia",
+		"body": "User: ${events.0.args.user}\nLiquidator: ${events.0.args.liquidator}\nDebt Covered: ${events.0.args.debtToCover}\nCollateral Seized: ${events.0.args.liquidatedCollateralAmount}\nTx: https://sepolia.etherscan.io/tx/${transaction.hash}"
+      }
+    }
+  }
+}
+  

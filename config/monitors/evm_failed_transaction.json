@@ -1,0 +1,28 @@
+{
+  "name": "Failed Transactions (Sepolia)",
+  "paused": false,
+  "networks": ["ethereum_sepolia"],
+  "addresses": [],
+  "match_conditions": {
+    "functions": [],
+    "events": [],
+    "transactions": [
+      {
+        "status": "Failure",
+        "expression": null
+      }
+    ]
+  },
+  "trigger_conditions": [
+    {
+      "script_path": "./config/filters/evm_filter_block_number.sh",
+      "language": "Bash",
+      "arguments": ["--verbose"],
+      "timeout_ms": 1000
+    }
+  ],
+  "triggers": [
+    "evm_failed_tx_slack"
+  ]
+}
+

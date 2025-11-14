@@ -1,0 +1,16 @@
+{
+  "evm_failed_tx_slack": {
+    "name": "Failed Transaction Slack Notification",
+    "trigger_type": "slack",
+    "config": {
+      "slack_url": {
+        "type": "plain",
+        "value": "YOUR_WEBHOOK_URL"
+      },
+      "message": {
+		"title": "${monitor.name} triggered",
+		"body": "A transaction has FAILED on Sepolia.\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\nGas Used: ${transaction.gas_used}\nNonce: ${transaction.nonce}\nTx: https://sepolia.etherscan.io/tx/${transaction.hash}"
+      }
+    }
+  }
+}
