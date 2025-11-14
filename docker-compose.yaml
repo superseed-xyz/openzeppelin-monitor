@@ -6,7 +6,7 @@ services:
     image: openzeppelin/openzeppelin-monitor:latest
     build:
       context: .
-      dockerfile: ${DOCKERFILE:-Dockerfile.development}
+      dockerfile: ${DOCKERFILE:-Dockerfile.production}
     environment:
       METRICS_PORT: ${METRICS_PORT:-8081}
       METRICS_ENABLED: ${METRICS_ENABLED:-false}
@@ -45,6 +45,7 @@ services:
       - monitor-network
     volumes:
       - ./cmd/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /home/ubuntu/prometheus_data:/prometheus
     restart: on-failure:5
     profiles:
       - metrics
@@ -54,6 +55,8 @@ services:
     security_opt:
       - no-new-privileges
     ports: [3000:3000/tcp]
+    env_file:
+      - ./config/monitoring/grafana.env
     networks:
       - metrics-network
       - monitor-network
@@ -61,6 +64,8 @@ services:
       - ./cmd/prometheus/grafana.ini:/etc/grafana/grafana.ini
       - ./cmd/prometheus/datasources:/etc/grafana/provisioning/datasources
       - ./cmd/prometheus/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/dashboards/simple_monitor_dashboard.json:/var/lib/grafana/dashboards/simple_monitor_dashboard.json
+      - /home/ubuntu/grafana_data:/var/lib/grafana
     restart: on-failure:5
     profiles:
       - metrics
