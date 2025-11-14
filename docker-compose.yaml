@@ -51,7 +51,6 @@ services:
       - metrics
 
   grafana:
-    user: root
     image: grafana/grafana:11.5.1
     security_opt:
       - no-new-privileges
