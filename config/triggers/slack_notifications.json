@@ -5,7 +5,7 @@
     "config": {
       "slack_url": {
         "type": "plain",
-        "value": "SLACK_WEBHOOK_URL"
+        "value": "https://hooks.slack.com/services/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"
       },
       "message": {
         "title": "${monitor.name} triggered",
@@ -19,7 +19,7 @@
     "config": {
       "slack_url": {
         "type": "plain",
-        "value": "SLACK_WEBHOOK_URL"
+        "value": "https://hooks.slack.com/services/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"
       },
       "message": {
         "title": "${monitor.name} triggered",
@@ -33,7 +33,7 @@
     "config": {
       "slack_url": {
         "type": "plain",
-        "value": "SLACK_WEBHOOK_URL"
+        "value": "https://hooks.slack.com/services/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"
       },
       "message": {
         "title": "large_swap_by_dex_slack triggered",
@@ -47,7 +47,7 @@
     "config": {
       "slack_url": {
         "type": "plain",
-        "value": "SLACK_WEBHOOK_URL"
+        "value": "https://hooks.slack.com/services/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"
       },
       "message": {
         "title": "midnight_bulletin_post_slack triggered",

@@ -1,10 +1,10 @@
 {
   "name": "Large Transfer of USDC Token",
   "paused": false,
-  "networks": ["ethereum_mainnet"],
+  "networks": ["ethereum_sepolia"],
   "addresses": [
     {
-      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "address": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
       "contract_spec": [
         {
           "anonymous": false,
@@ -54,7 +54,7 @@
     "events": [
       {
         "signature": "Transfer(address,address,uint256)",
-        "expression": "value > 10000000000"
+        "expression": "value > 100000000000"
       }
     ],
     "transactions": [
@@ -70,5 +70,5 @@
     "arguments": ["--verbose"],
     "timeout_ms": 1000
   }],
-  "triggers": ["evm_large_transfer_usdc_slack", "evm_large_transfer_usdc_email"]
+  "triggers": ["evm_large_transfer_usdc_slack"]
 }
