@@ -1,10 +1,10 @@
 {
-  "name": "Liquidation vETH(Sepolia)",
+  "name": "Liquidation vUSDC(Sepolia)",
   "paused": false,
   "networks": ["ethereum_sepolia"],
   "addresses": [
     {
-      "address": "0x23b83ea95400067Ed7c43079F79FccD03Dd731f7",
+      "address": "0x9b1736e1Ce0aB056C0f4Cf5c717BFA719b4e3e2F",
       "contract_spec": [
         {
           "anonymous": false,
